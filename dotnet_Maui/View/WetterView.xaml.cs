@@ -1,19 +1,16 @@
+using dotnet_Maui.ViewModel;
+
 namespace dotnet_Maui.View;
 
 public partial class WetterView : ContentPage
 {
-	public WetterView()
-	{
-		InitializeComponent();
-        NavigationPage.SetHasNavigationBar(this, false);
-    }
+    private WetterViewModel viewModel;
 
-    private async void BtnBackClick(object sender, EventArgs e)
+    public WetterView()
     {
-        // Erstellen einer neuen Instanz der WetterView-Klasse
-        MainPage main = new MainPage();
-
-        // Hinzufügen der WetterView-Instanz zur Navigationshierarchie
-        await Navigation.PushAsync(main);
+        InitializeComponent();
+        viewModel = new WetterViewModel();
+        BindingContext = viewModel;
+        NavigationPage.SetHasNavigationBar(this, false);
     }
 }

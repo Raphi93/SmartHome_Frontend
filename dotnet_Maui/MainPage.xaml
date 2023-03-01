@@ -89,10 +89,10 @@
                 Grid.Column="1"
                 Margin="10"
                 CornerRadius="40"
-                Source="images.png"
+                Source="wetter.jpg"
                 BorderColor="White"
                 BorderWidth="1"
-                Clicked="btnWetterClicked"
+                Command="{Binding CmdWeather}"
                 x:Name="btnWetter"
                 IsEnabled="True" />
 
