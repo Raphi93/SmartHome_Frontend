@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#276266"
+    x:Class="dotnet_Maui.MainPage">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="70" />
+                <RowDefinition
+                    Height="0.4*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="0.4*" />
+                <RowDefinition
+                    Height="70" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="0.2*" />
+                <ColumnDefinition
+                    Width="1*" />
+                <ColumnDefinition
+                    Width="1*" />
+                <ColumnDefinition
+                    Width="0.2*" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                BackgroundColor="Black"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="0.4*" />
+                        <RowDefinition
+                            Height="1*" />
+                        <RowDefinition
+                            Height="0.3*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="0.2*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="0.2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        TextColor="White"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        FontSize="Large">
+                        Smart Home
+                    </Label>
+
+                    <Button
+                        BorderColor="White"
+                        Text="Login"
+                        TextColor="White"
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        BackgroundColor="Black"
+                        BorderWidth="1" />
+                </Grid>
+            </Border>
+
+            <!-- Hier können die Inhalte der einzelnen Zellen platziert werden -->
+            <ImageButton
+                BackgroundColor="Black"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="10"
+                CornerRadius="40"
+                Source="images.png"
+                BorderColor="White"
+                BorderWidth="1"
+                Clicked="btnWetterClicked"
+                x:Name="btnWetter"
+                IsEnabled="True" />
+
+            <Button
+                BackgroundColor="Black"
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="10"
+                CornerRadius="40"
+                BorderColor="White"
+                BorderWidth="1"
+                Text="Not Available"
+                TextColor="White"
+                FontSize="Micro" />
+
+            <Button
+                BackgroundColor="Black"
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="10"
+                CornerRadius="40"
+                BorderColor="White"
+                BorderWidth="1"
+                Text="Not Available"
+                TextColor="White"
+                FontSize="Micro" />
+
+            <Button
+                BackgroundColor="Black"
+                Grid.Row="2"
+                Grid.Column="2"
+                Margin="10"
+                CornerRadius="40"
+                BorderColor="White"
+                BorderWidth="1"
+                Text="Not Available"
+                TextColor="White"
+                FontSize="Micro" />
+
+            <Button
+                BackgroundColor="Black"
+                Grid.Row="3"
+                Grid.Column="2"
+                Margin="10"
+                CornerRadius="40"
+                BorderColor="White"
+                BorderWidth="1"
+                Text="Not Available"
+                TextColor="White"
+                FontSize="Micro" />
+
+            <Button
+                BackgroundColor="Black"
+                Grid.Row="4"
+                Grid.Column="2"
+                Margin="10"
+                CornerRadius="40"
+                BorderColor="White"
+                BorderWidth="1"
+                Text="Not Available"
+                TextColor="White"
+                FontSize="Micro" />
+
+
+            <Border
+                BackgroundColor="Black"
+                Grid.Row="6"
+                Grid.Column="0"
+                Grid.ColumnSpan="4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="0.3*" />
+                        <RowDefinition
+                            Height="1*" />
+                        <RowDefinition
+                            Height="0.3*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="0.32*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="0.2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        TextColor="White"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        FontSize="Large">
+                        Entwickler:
+                    </Label>
+
+                    <Label
+                        TextColor="White"
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Grid.ColumnSpan="2"
+                        FontSize="Large">
+                        Raphael Hug
+                    </Label>
+                </Grid>
+            </Border>
+        </Grid>
+
+</ContentPage>
