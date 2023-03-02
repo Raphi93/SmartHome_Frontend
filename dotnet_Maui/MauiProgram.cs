@@ -10,30 +10,36 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
-
-		//var a = Assembly.GetExecutingAssembly();
-		//using var stream = a.GetManifestResourceStream("C:\\Users\\raphi\\Desktop\\appsettings.json");
-
-		//var config = new ConfigurationBuilder()
-		//			.AddJsonStream(stream)
-		//			.Build();
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
 
-		//builder.Configuration.AddConfiguration(config);
-		//builder.Services.AddTransient<MainViewModel>();
+        //var a = Assembly.GetExecutingAssembly();
+        //using var stream = a.GetManifestResourceStream("C:\\Users\\raphi\\Desktop\\appsettings.json");
+
+        //var config = new ConfigurationBuilder()
+        //			.AddJsonStream(stream)
+        //			.Build();
+
+
+        //builder.Configuration.AddConfiguration(config);
+        //builder.Services.AddTransient<MainViewModel>();
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
+//		HttpClientHandler insecureHandler = GetInsecureHandler();
+//		HttpClient client = new HttpClient(insecureHandler);
+//#else
+//		 HttpClient client = new HttpClient();
 #endif
 
 		return builder.Build();
 	}
+
 }

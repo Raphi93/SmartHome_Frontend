@@ -49,6 +49,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Utility\**" />
+	  <EmbeddedResource Remove="Utility\**" />
+	  <MauiCss Remove="Utility\**" />
+	  <MauiXaml Remove="Utility\**" />
+	  <None Remove="Utility\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiAsset Remove="Resources\Raw\appsettings.json" />
 	</ItemGroup>
 
@@ -64,16 +72,13 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+		<PackageReference Include="RestSharp" Version="108.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="View\WetterView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Utility\" />
 	</ItemGroup>
 
 	<ItemGroup>

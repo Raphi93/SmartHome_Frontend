@@ -117,13 +117,14 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         FontSize="Medium"
-                        Text="Temperatur" />
+                        Text="Temp" />
                     <Entry
                         TextColor="Black"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
                         Grid.Row="0"
                         Grid.Column="1"
+                        BindingContext="{Binding Path=[WeatherStationModel].temp}"
                         Text="NoN"
                         IsReadOnly="True" />
 
@@ -135,6 +136,7 @@
                         Text="Wind" />
                     <Entry
                         TextColor="Black"
+                        BindingContext="{Binding Path=[WeatherStationModel].wind}"
                         Grid.Row="0"
                         Grid.Column="4"
                         Margin="0,-10,0,0"
@@ -151,6 +153,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="1"
+                        BindingContext="{Binding Path=[WeatherStationModel].tempMax}"
                         Grid.Column="1"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
@@ -166,6 +169,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="1"
+                        BindingContext="{Binding Path=[WeatherStationModel].windmax}"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
                         Grid.Column="4"
@@ -181,6 +185,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="2"
+                        BindingContext="{Binding Path=[WeatherStationModel].tempMin}"
                         Grid.Column="1"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
@@ -196,6 +201,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="2"
+                        BindingContext="{Binding Path=[WeatherStationModel].windMin}"
                         Grid.Column="4"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
@@ -211,6 +217,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="3"
+                        BindingContext="{Binding Path=[WeatherStationModel].humidity}"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
                         Grid.Column="1"
@@ -226,6 +233,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="3"
+                        BindingContext="{Binding Path=[WeatherStationModel].rain}"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
                         Grid.Column="4"
@@ -242,6 +250,7 @@
                         TextColor="Black"
                         Grid.Row="4"
                         Grid.Column="1"
+                        BindingContext="{Binding Path=[WeatherStationModel].humidityMax}"
                         Text="NoN"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
@@ -257,6 +266,7 @@
                         TextColor="Black"
                        Margin="0,-10,0,0"
                         FontSize="Medium"
+                        BindingContext="{Binding Path=[WeatherStationModel].rainning}"
                         Grid.Row="4"
                         Grid.Column="4"
                         Text="NoN"
@@ -271,6 +281,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="5"
+                        BindingContext="{Binding Path=[WeatherStationModel].humidityMin}"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
                         Grid.Column="1"
@@ -286,6 +297,7 @@
                     <Entry
                         TextColor="Black"
                         Grid.Row="5"
+                        BindingContext="{Binding Path=[WeatherStationModel].sunDuration}"
                         Margin="0,-10,0,0"
                         FontSize="Medium"
                         Grid.Column="4"
@@ -311,7 +323,8 @@
                         <Entry
                             TextColor="Black"
                             BackgroundColor="White"
-                             FontSize="Medium"
+                            FontSize="Medium"
+                            BindingContext="{Binding Path=[WeatherStationModel].daytime, Mode=TwoWay}"
                             HorizontalTextAlignment="End"
                             Text="27.2.2023"/>
                     </Border>
@@ -321,6 +334,7 @@
                         Grid.Column="4"
                         Margin="-20,-10,10,10"
                         BackgroundColor="Black"
+                        Command="{Binding CmdGetData}"
                         TextColor="White"
                         Text="OK">
                         
