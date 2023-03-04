@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using dotnet_Maui.ViewModel;
+using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace dotnet_Maui.Models
 {
-    public class WeatherSationModel
+    public class WeatherSationModel : ViewModelBase
     {
         [JsonPropertyName("_id")]
         public string? _id { get; set; }
@@ -18,10 +21,10 @@ namespace dotnet_Maui.Models
         [JsonPropertyName("tempMin")]
         public double? tempMin { get; set; }
 
-        [JsonPropertyName("TempMax")]      
+        [JsonPropertyName("tempMax")]      
         public double? tempMax { get; set; }
 
-        [JsonPropertyName("Wind")]    
+        [JsonPropertyName("wind")]    
         public double? wind { get; set; }
 
         [JsonPropertyName("windMin")]
@@ -50,10 +53,25 @@ namespace dotnet_Maui.Models
         [JsonPropertyName("sunDuration")]
         public double? sunDuration { get; set; }
 
-        [JsonPropertyName("dayTime")]
-        public string? daytime { get; set; }
 
-        [JsonPropertyName("id")]
+
+        private string _dayTime = string.Empty;
+
+        [JsonPropertyName("dayTime")]
+        public string dayTime
+        {
+            get => _dayTime;
+            set
+            {
+                if (_dayTime != value)
+                {
+                    SetProperty(ref _dayTime, value);
+                }
+            }
+        }
+
+
+    [JsonPropertyName("id")]
         public int? id { get; set; }
 
         [JsonPropertyName("sunDurSOP")]

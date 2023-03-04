@@ -80,7 +80,7 @@
                 BackgroundColor="White"
                 Grid.Row="2"
                 Grid.Column="1"
-                Padding="10,20,0,0">
+                Padding="10,20,10,0">
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -103,213 +103,174 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
-                            Width="115" />
+                            Width="106" />
                         <ColumnDefinition
                             Width="1*" />
                         <ColumnDefinition
-                            Width="115" />
+                            Width="106" />
                         <ColumnDefinition
                             Width="1*" />
                     </Grid.ColumnDefinitions>
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="0"
                         Grid.Column="0"
-                        FontSize="Medium"
                         Text="Temp" />
                     <Entry
-                        TextColor="Black"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="0"
                         Grid.Column="1"
-                        BindingContext="{Binding Path=[WeatherStationModel].temp}"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding temp}" />
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="0"
-                        FontSize="Medium"
                         Grid.Column="2"
                         Text="Wind" />
                     <Entry
-                        TextColor="Black"
-                        BindingContext="{Binding Path=[WeatherStationModel].wind}"
+                        Style="{StaticResource btnWetter}"
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding wind}"
                         Grid.Row="0"
-                        Grid.Column="4"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        Grid.Column="4"/>
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="1"
-                        FontSize="Medium"
                         Grid.Column="0"
                         Text="Temp Max" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="1"
-                        BindingContext="{Binding Path=[WeatherStationModel].tempMax}"
-                        Grid.Column="1"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding tempMax}"
+                        Grid.Column="1"/>
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="1"
-                        FontSize="Medium"
                         Grid.Column="2"
                         Text="Wind Max" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="1"
-                        BindingContext="{Binding Path=[WeatherStationModel].windmax}"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Grid.Column="4"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding windMax}"
+                        Grid.Column="4" />
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="2"
                         Grid.Column="0"
-                        FontSize="Medium"
                         Text="Temp Min" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="2"
-                        BindingContext="{Binding Path=[WeatherStationModel].tempMin}"
-                        Grid.Column="1"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding tempMin}"
+                        Grid.Column="1"/>
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="2"
                         Grid.Column="2"
-                        FontSize="Medium"
                         Text="Wind Min" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="2"
-                        BindingContext="{Binding Path=[WeatherStationModel].windMin}"
-                        Grid.Column="4"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding windMin}"
+                        Grid.Column="4"/>
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="3"
                         Grid.Column="0"
-                        FontSize="Medium"
                         Text="Humitdy" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="3"
-                        BindingContext="{Binding Path=[WeatherStationModel].humidity}"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Grid.Column="1"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding humidity}"
+                        Grid.Column="1"/>
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="3"
-                        FontSize="Medium"
                         Grid.Column="2"
-                        Text="Rain" />
+                        Text="Rain/mm" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="3"
-                        BindingContext="{Binding Path=[WeatherStationModel].rain}"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Grid.Column="4"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding rain}"
+                        Grid.Column="4" />
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="4"
-                        FontSize="Medium"
                         Grid.Column="0"
                         Text="Humi Max" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="4"
                         Grid.Column="1"
-                        BindingContext="{Binding Path=[WeatherStationModel].humidityMax}"
-                        Text="NoN"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding humidityMax}"/>
 
                     <Label
-                        TextColor="Black"
-                        FontSize="Medium"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="4"
                         Grid.Column="2"
                         Text="Rainning" />
                     <Entry
-                        TextColor="Black"
-                       Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        BindingContext="{Binding Path=[WeatherStationModel].rainning}"
+                        Style="{StaticResource btnWetter}"
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding raining}"
                         Grid.Row="4"
-                        Grid.Column="4"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        Grid.Column="4" />
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="5"
-                        FontSize="Medium"
                         Grid.Column="0"
                         Text="Humi Min" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="5"
-                        BindingContext="{Binding Path=[WeatherStationModel].humidityMin}"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Grid.Column="1"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding humidityMin}"
+                        Grid.Column="1"/>
 
                     <Label
-                        TextColor="Black"
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="5"
-                        FontSize="Medium"
                         Grid.Column="2"
-                        Text="Sonne" />
+                        Text="Sonne/h" />
                     <Entry
-                        TextColor="Black"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="5"
-                        BindingContext="{Binding Path=[WeatherStationModel].sunDuration}"
-                        Margin="0,-10,0,0"
-                        FontSize="Medium"
-                        Grid.Column="4"
-                        Text="NoN"
-                        IsReadOnly="True" />
+                        BindingContext="{Binding WeatherData}"
+                        Text="{Binding sunDuration}"
+                        Grid.Column="4" />
 
 
+                    <Image
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        Grid.ColumnSpan="4"
+                        Margin="20,0,20,20"
+                        HeightRequest="160"
+                        x:Name="WetterDatenImage"
+                        Source="{Binding WetterDatenImageSource}"
+                        HorizontalOptions="Center" />
 
-                    <Label 
-                        TextColor="Black"
+
+                    <Label
+                        Style="{StaticResource lblWetter}"
                         Grid.Row="7"
-                        FontSize="Large"
                         Grid.Column="0"
                         Text="Datum:" />
 
@@ -324,9 +285,10 @@
                             TextColor="Black"
                             BackgroundColor="White"
                             FontSize="Medium"
-                            BindingContext="{Binding Path=[WeatherStationModel].daytime, Mode=TwoWay}"
-                            HorizontalTextAlignment="End"
-                            Text="27.2.2023"/>
+                            BindingContext="{Binding WeatherData}"
+                            Text="{Binding dayTime, Mode=TwoWay}"
+                            Placeholder="Ab 4.3.2023"
+                            HorizontalTextAlignment="End"/>
                     </Border>
 
                     <Button
@@ -337,7 +299,6 @@
                         Command="{Binding CmdGetData}"
                         TextColor="White"
                         Text="OK">
-                        
                     </Button>
 
                 </Grid>

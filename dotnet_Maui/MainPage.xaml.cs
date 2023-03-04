@@ -26,6 +26,6 @@ public partial class MainPage : ContentPage
         // Set a boolean value:
         Preferences.Default.Set("LinkWeather", "/WeatherStation");
     }
-
+    
 }
 

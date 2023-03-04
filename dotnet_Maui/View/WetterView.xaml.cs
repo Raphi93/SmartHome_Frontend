@@ -11,6 +11,7 @@ public partial class WetterView : ContentPage
         InitializeComponent();
         viewModel = new WetterViewModel();
         BindingContext = viewModel;
+
         NavigationPage.SetHasNavigationBar(this, false);
     }
 }

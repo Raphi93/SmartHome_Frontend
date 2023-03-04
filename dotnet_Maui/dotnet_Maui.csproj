@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-maccatalyst;net6.0-ios;net6.0-android</TargetFrameworks>
+		<TargetFrameworks>net7.0-maccatalyst;net6.0-ios;net7.0-android33.0</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
@@ -61,7 +61,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\cold.png" />
+	  <None Remove="Resources\Images\cool.jpg" />
+	  <None Remove="Resources\Images\crazy.png" />
+	  <None Remove="Resources\Images\good.jpg" />
+	  <None Remove="Resources\Images\hot.jpg" />
+	  <None Remove="Resources\Images\keineAhnung.jpg" />
+	  <None Remove="Resources\Images\nei.png" />
+	  <None Remove="Resources\Images\rip.jpg" />
+	  <None Remove="Resources\Images\shock.png" />
 	  <None Remove="Resources\Images\wetter.jpg" />
+	  <None Remove="Resources\Images\winter.jpg" />
+	  <None Remove="Resources\Raw\localhost.crt" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -72,6 +83,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 		<PackageReference Include="RestSharp" Version="108.0.3" />
 	</ItemGroup>
 
@@ -85,9 +97,19 @@
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Platforms\Android\Resources\xml\network_security_config.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Resources\Raw\appsettings.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Resources\xml\network_security_config.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Include="Platforms\Android\Resources\raw\localhost.crt" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptiondotnet_MauiHideInfoBar="True" /></VisualStudio></ProjectExtensions>

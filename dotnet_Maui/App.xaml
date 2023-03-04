@@ -9,6 +9,41 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style
+                x:Key="lblWetter"
+                TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"/>
+                <Setter
+                    Property="FontSize"
+                    Value="Medium" />
+            </Style>
+
+            <Style
+                x:Key="btnWetter"
+                TargetType="Entry">
+                <Setter
+                    Property="TextColor"
+                    Value="DarkGreen" />
+                <Setter
+                    Property="FontSize"
+                    Value="Medium" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="End" />
+                <Setter
+                    Property="IsReadOnly"
+                    Value="true" />
+                <Setter
+                    Property="Margin"
+                    Value="0,-10,10,0" />
+                <Setter
+                    Property="Placeholder"
+                    Value="NaN" />
+                <Setter
+                    Property="PlaceholderColor"
+                    Value="Red" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
