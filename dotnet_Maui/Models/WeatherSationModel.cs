@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using dotnet_Maui.ViewModel;
-using System.Runtime.CompilerServices;
+﻿using dotnet_Maui.ViewModel;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace dotnet_Maui.Models
 {

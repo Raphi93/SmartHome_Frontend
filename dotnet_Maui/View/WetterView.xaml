@@ -9,15 +9,15 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition
-                    Height="70" />
+                    Height="80" />
                 <RowDefinition
-                    Height="70" />
+                    Height="10" />
                 <RowDefinition
                     Height="1*" />
                 <RowDefinition
-                    Height="70" />
+                    Height="10" />
                 <RowDefinition
-                    Height="70" />
+                    Height="80" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition
@@ -32,49 +32,34 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition
-                            Height="0.4*" />
-                        <RowDefinition
                             Height="1*" />
-                        <RowDefinition
-                            Height="0.3*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
-                            Width="0.2*" />
-                        <ColumnDefinition
                             Width="1*" />
                         <ColumnDefinition
                             Width="1*" />
                         <ColumnDefinition
                             Width="1*" />
-                        <ColumnDefinition
-                            Width="1*" />
-                        <ColumnDefinition
-                            Width="0.2*" />
                     </Grid.ColumnDefinitions>
 
                     <Label
-                        TextColor="White"
-                        Grid.Row="1"
-                        Grid.Column="1"
+                        Style="{StaticResource LabelHeader}"
+                        Grid.Row="0"
+                        Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        FontSize="Large">
-                        Wetterdaten
-                    </Label>
+                        Text="Wetterdaten"/>
+
 
                     <Button
-                        BorderColor="White"
-                        Text="Back"
-                        TextColor="White"
-                        Grid.Row="1"
-                        IsEnabled="True"
-                        Grid.Column="4"
+                        Grid.Column="2"
+                        Grid.Row="0"
                         Command="{Binding CmdBack}"
-                        BackgroundColor="Black"
-                        BorderWidth="1" />
+                        Text="Back"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource ButtonHeader}"/>
                 </Grid>
             </Border>
-
 
             <Border
                 BackgroundColor="White"
@@ -307,50 +292,35 @@
 
             <Border
                 BackgroundColor="Black"
-                Grid.Row="6"
-                Grid.Column="0"
-                Grid.ColumnSpan="4">
+                Grid.Row="5"
+                Grid.Column="0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition
-                            Height="0.3*" />
-                        <RowDefinition
                             Height="1*" />
-                        <RowDefinition
-                            Height="0.3*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
-                            Width="0.32*" />
-                        <ColumnDefinition
                             Width="1*" />
                         <ColumnDefinition
                             Width="1*" />
                         <ColumnDefinition
                             Width="1*" />
-                        <ColumnDefinition
-                            Width="1*" />
-                        <ColumnDefinition
-                            Width="0.2*" />
                     </Grid.ColumnDefinitions>
 
                     <Label
-                        TextColor="White"
-                        Grid.Row="1"
-                        Grid.Column="1"
+                        Grid.Row="0"
+                        Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        FontSize="Large">
-                        Entwickler:
-                    </Label>
+                        Text="Dev: Raphael Hug"
+                        Style="{StaticResource LabelHeader}"/>
 
                     <Label
-                        TextColor="White"
-                        Grid.Row="1"
-                        Grid.Column="3"
+                        Grid.Row="0"
+                        Grid.Column="1"
                         Grid.ColumnSpan="2"
-                        FontSize="Large">
-                        Raphael Hug
-                    </Label>
+                        Text="V0.1"
+                        Style="{StaticResource LabelBuuton}"/>
                 </Grid>
             </Border>
         </Grid>

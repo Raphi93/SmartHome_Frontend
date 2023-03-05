@@ -13,19 +13,16 @@ namespace dotnet_Maui.ViewModel
     public class MainViewModel
     {
         private Command _cmdWeather { get; set; }
-        private Command _cmdGetDate { get; set; }
-        IConfiguration configuration;
+        private Command _cmdSetting { get; set; }
+        private Command _cmdLogin { get; set; }
+        private string _loginLogout { get; set; }
 
         public MainViewModel()
         {
             _cmdWeather = new Command(ExecuteWetter, CanExecuteWetter);
-            _cmdGetDate = new Command(ExecuteGetDate, CanExecuteGetDate);
-        }
-
-        public MainViewModel(IConfiguration config)
-            :base()
-        {
-            configuration = config;
+            _cmdLogin = new Command(ExecuteLogin);
+            _cmdSetting = new Command(ExecuteSetting);
+            LoginLogoutControll();
         }
 
         private async void ExecuteWetter()
@@ -37,43 +34,81 @@ namespace dotnet_Maui.ViewModel
             await Application.Current.MainPage.Navigation.PushAsync(wetterView);
         }
 
+        public void LoginLogoutControll()
+        {
+            Configuration config = ConfigManager.LoadConfig();
+            string apiKey = config.ApiKey;
+
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                LoginLogout = "Logout";
+            }
+            else
+            {
+                LoginLogout = "Login";
+            }
+        }
+
+        private async void ExecuteLogin()
+        {
+            Configuration config = ConfigManager.LoadConfig();
+            string apiKey = config.ApiKey;
+            if (apiKey == "")
+            {
+                LoginView login = new LoginView();
+                await Application.Current.MainPage.Navigation.PushAsync(login);
+            }
+            else
+            {
+                config.ApiKey = "";
+                ConfigManager.SaveConfig(config);
+                await Application.Current.MainPage.Navigation.PopAsync();
+            }
+        }
+
         private bool CanExecuteWetter()
         {
-            //var settings = new Settings();
-            //var section = configuration.GetSection("Settings");
-            //if (section != null)
-            //{
-            //    settings.ApiKey = section["ApiKey"];
-            //}
+            Configuration config = ConfigManager.LoadConfig();
+            string apiKey = config.ApiKey;
 
-
-
-            //var apiKey = settings.ApiKey;
-
-            //if (apiKey != "")
-            //{
+            if (apiKey != "")
+            {
                 return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        private void ExecuteGetDate(object obj)
+        private async void ExecuteSetting()
         {
-            throw new NotImplementedException();
-        }
-
-        private bool CanExecuteGetDate(object arg)
-        {
-            return true;
+            SettingView setting = new SettingView();
+            await Application.Current.MainPage.Navigation.PushAsync(setting);
         }
 
         public Command CmdWeather
         {
             get { return _cmdWeather; }
             set { _cmdWeather = value; }
+        }
+
+        public Command CmdSetting
+        {
+            get { return _cmdSetting; }
+            set { _cmdSetting = value; }
+        }
+
+        public Command CmdLogin
+        {
+            get { return _cmdLogin; }
+            set { _cmdLogin = value; }
+        }
+
+        public string LoginLogout
+        {
+            get { return _loginLogout; }
+            set { _loginLogout = value; }
         }
     }
 }

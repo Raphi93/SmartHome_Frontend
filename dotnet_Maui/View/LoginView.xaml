@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="dotnet_Maui.View.LoginView"
+             BackgroundColor="#276266">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="80" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="80" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                BackgroundColor="Black"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Style="{StaticResource LabelHeader}"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="Login"/>
+
+
+                    <Button
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        Command="{Binding CmdBack}"
+                        Text="Back"
+                        Style="{StaticResource ButtonHeader}"/>
+                </Grid>
+            </Border>
+
+            <Border
+                BackgroundColor="White"
+                Grid.Row="2"
+                Grid.Column="1"
+                Padding="10,20,10,0">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="40" />
+                        <RowDefinition
+                            Height="40" />
+                        <RowDefinition
+                            Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="130" />
+                        <ColumnDefinition
+                            Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Style="{StaticResource lblWetter}"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="User Name" />
+                    <Entry
+                        Style="{StaticResource btnConfig}"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        BindingContext="{Binding Config}"
+                        Text="{Binding UserName, Mode=TwoWay}" />
+
+                    <Label
+                        Style="{StaticResource lblWetter}"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Password" />
+                    <Entry
+                        Style="{StaticResource btnConfig}"
+                        BindingContext="{Binding Config}"
+                        Text="{Binding Password, Mode=TwoWay}"
+                        Grid.Row="1"
+                        Grid.Column="1"/>
+
+                    
+                    <Button
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        WidthRequest="100"
+                        Margin="10"
+                        BackgroundColor="Black"
+                        Command="{Binding CmdSave}"
+                        TextColor="White"
+                        Text="Senden">
+                    </Button>
+
+                </Grid>
+            </Border>
+
+
+            <Border
+                BackgroundColor="Black"
+                Grid.Row="5"
+                Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="Dev: Raphael Hug"
+                        Style="{StaticResource LabelHeader}"/>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="V0.1"
+                        Style="{StaticResource LabelBuuton}"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentPage>

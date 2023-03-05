@@ -19,7 +19,7 @@ namespace dotnet_Maui.ViewModel
 
         public WetterViewModel()
         {
-            _cmdBack = new Command(ExecuteBack, CanExecuteBack);
+            _cmdBack = new Command(ExecuteBack);
             _cmdGetData = new Command(ExecuteGetData, CanExecuteGetData);
             WetterDatenImageSource = ImageSource.FromFile(DefaultImageSource);
         }
@@ -48,15 +48,12 @@ namespace dotnet_Maui.ViewModel
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
-        private bool CanExecuteBack()
-        {
-            return true;
-        }
 
         private async void ExecuteGetData()
         {
             try
             {
+                Configuration config = ConfigManager.LoadConfig();
 
                 var handler = new HttpClientHandler();
                 handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
@@ -64,8 +61,8 @@ namespace dotnet_Maui.ViewModel
 
 
                 string datum = WeatherData.dayTime.ToString();
-                var request = new HttpRequestMessage(HttpMethod.Get, $"https://ruphys.internet-box.ch:7081/api/WeatherStation/Datum?dayTime={datum}");
-                request.Headers.Add("ApiKey", "3dbae7eb-d351-4ed1-88b8-0e06aef9fd50");
+                var request = new HttpRequestMessage(HttpMethod.Get, $"{config.Url}{config.WeatherUrl}{datum}");
+                request.Headers.Add("ApiKey", config.ApiKey);
 
                 var response = await client.SendAsync(request);
 
