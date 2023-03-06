@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="dotnet_Maui.View.LoginView"
+             x:Class="dotnet_Maui.View.IndoorTempView"
              BackgroundColor="#276266">
+
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
@@ -11,7 +12,7 @@
                 <RowDefinition
                     Height="1*" />
                 <RowDefinition
-                    Height="200" />
+                    Height="300" />
                 <RowDefinition
                     Height="1*" />
                 <RowDefinition
@@ -46,7 +47,7 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        Text="Login"/>
+                        Text="Temperatur"/>
 
 
                     <Button
@@ -54,6 +55,7 @@
                         Grid.Row="0"
                         Command="{Binding CmdBack}"
                         Text="Back"
+                        Grid.ColumnSpan="2"
                         Style="{StaticResource ButtonHeader}"/>
                 </Grid>
             </Border>
@@ -71,11 +73,19 @@
                         <RowDefinition
                             Height="40" />
                         <RowDefinition
-                            Height="1*" />
+                            Height="40" />
+                        <RowDefinition
+                            Height="80" />
+                        <RowDefinition
+                            Height="50" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
-                            Width="130" />
+                            Width="110" />
+                        <ColumnDefinition
+                            Width="1*" />
+                        <ColumnDefinition
+                            Width="110" />
                         <ColumnDefinition
                             Width="1*" />
                     </Grid.ColumnDefinitions>
@@ -84,39 +94,102 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="0"
                         Grid.Column="0"
-                        Text="User Name" />
+                        Text="WandMax" />
                     <Entry
-                        Style="{StaticResource btnConfig}"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="0"
                         Grid.Column="1"
-                        BindingContext="{Binding Config}"
-                        Text="{Binding UserName, Mode=TwoWay}" />
+                        BindingContext="{Binding IndoorData}"
+                        Text="{Binding wallTempMax}" />
+
+                    <Label
+                        Style="{StaticResource lblWetter}"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Text="BodenMax" />
+                    <Entry
+                        Style="{StaticResource btnWetter}"
+                        BindingContext="{Binding IndoorData}"
+                        Text="{Binding floorTempMax}"
+                        Grid.Row="0"
+                        Grid.Column="4"/>
 
                     <Label
                         Style="{StaticResource lblWetter}"
                         Grid.Row="1"
                         Grid.Column="0"
-                        Text="Password" />
+                        Text="WallMin" />
                     <Entry
-                        Style="{StaticResource btnConfig}"
-                        BindingContext="{Binding Config}"
-                        Text="{Binding Password, Mode=TwoWay}"
+                        Style="{StaticResource btnWetter}"
                         Grid.Row="1"
-                        IsPassword="True"
+                        BindingContext="{Binding IndoorData}"
+                        Text="{Binding wallTempMin}"
                         Grid.Column="1"/>
 
-                    
-                    <Button
+                    <Label
+                        Style="{StaticResource lblWetter}"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Text="BodenMin" />
+                    <Entry
+                        Style="{StaticResource btnWetter}"
+                        Grid.Row="1"
+                        BindingContext="{Binding IndoorData}"
+                        Text="{Binding floorTempMin}"
+                        Grid.Column="4" />
+
+                    <Label
+                        Style="{StaticResource lblWetter}"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Boden Ist" />
+                    <Entry
+                        Style="{StaticResource btnWetter}"
+                        Grid.Row="2"
+                        BindingContext="{Binding IndoorData}"
+                        Text="{Binding floorTemp}"
+                        Grid.Column="1"/>
+
+                    <Label
+                        Style="{StaticResource lblWetter}"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Text="Wand Ist" />
+                    <Entry
+                        Style="{StaticResource btnWetter}"
+                        Grid.Row="2"
+                        BindingContext="{Binding IndoorData}"
+                        Text="{Binding wallTemp}"
+                        Grid.Column="4"/>
+
+                    <StackLayout
                         Grid.Row="3"
-                        Grid.Column="1"
-                        VerticalOptions="End"
-                        HorizontalOptions="End"
-                        WidthRequest="100"
-                        Margin="10"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4">
+
+                        <Slider x:Name="MySlider"
+                            Maximum="24"
+                            Minimum="18"
+                            Margin="30"
+                            BackgroundColor="#276266"
+                            HeightRequest="30"
+                            BindingContext="{Binding IndoorData}"
+                            Value="{Binding heizungSollte, Mode=TwoWay}"/>
+
+                        <Label x:Name="MyTextBlock"
+                               TextColor="DarkGreen"
+                               FontSize="Large"
+                            Text="{Binding Value, Source={x:Reference MySlider}}"/>
+                    </StackLayout>
+
+                    <Button
+                        Grid.Row="7"
+                        Grid.Column="4"
+                        Margin="-20,0,10,0"
                         BackgroundColor="Black"
                         Command="{Binding CmdSave}"
                         TextColor="White"
-                        Text="Senden">
+                        Text="OK">
                     </Button>
 
                 </Grid>
@@ -158,4 +231,5 @@
             </Border>
         </Grid>
     </ScrollView>
+
 </ContentPage>

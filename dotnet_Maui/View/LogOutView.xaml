@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="dotnet_Maui.View.LoginView"
+             x:Class="dotnet_Maui.View.LogOutView"
              BackgroundColor="#276266">
     <ScrollView>
         <Grid>
@@ -11,7 +11,7 @@
                 <RowDefinition
                     Height="1*" />
                 <RowDefinition
-                    Height="200" />
+                    Height="150" />
                 <RowDefinition
                     Height="1*" />
                 <RowDefinition
@@ -46,7 +46,7 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        Text="Login"/>
+                        Text="Logout"/>
 
 
                     <Button
@@ -61,65 +61,40 @@
             <Border
                 BackgroundColor="White"
                 Grid.Row="2"
-                Grid.Column="1"
+                Grid.Column="0"
                 Padding="10,20,10,0">
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition
-                            Height="40" />
-                        <RowDefinition
-                            Height="40" />
-                        <RowDefinition
-                            Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="130" />
-                        <ColumnDefinition
-                            Width="1*" />
-                    </Grid.ColumnDefinitions>
+                <VerticalStackLayout>
 
-                    <Label
-                        Style="{StaticResource lblWetter}"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Text="User Name" />
-                    <Entry
-                        Style="{StaticResource btnConfig}"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        BindingContext="{Binding Config}"
-                        Text="{Binding UserName, Mode=TwoWay}" />
+                    <Label Text="Sind Sie sich sicher?" TextColor="Black"
+                           FontSize="Title"/>
 
-                    <Label
-                        Style="{StaticResource lblWetter}"
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Text="Password" />
-                    <Entry
-                        Style="{StaticResource btnConfig}"
-                        BindingContext="{Binding Config}"
-                        Text="{Binding Password, Mode=TwoWay}"
-                        Grid.Row="1"
-                        IsPassword="True"
-                        Grid.Column="1"/>
+                    <HorizontalStackLayout Spacing="10" 
+                                           HorizontalOptions="End"
+                                           Padding="0,30,0,0"
+                                           VerticalOptions="End">
 
-                    
-                    <Button
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        VerticalOptions="End"
-                        HorizontalOptions="End"
-                        WidthRequest="100"
-                        Margin="10"
-                        BackgroundColor="Black"
-                        Command="{Binding CmdSave}"
-                        TextColor="White"
-                        Text="Senden">
-                    </Button>
+                        <Button
+                            Text="Ja"
+                            BackgroundColor="Black"
+                            TextColor="White"
+                            HorizontalOptions="End"
+                            HeightRequest="50"
+                            Command="{Binding CmdJa}"
+                            WidthRequest="100"/>
+                        <Button
+                            Text="Nein"
+                            BackgroundColor="Black"
+                            TextColor="White"
+                            HorizontalOptions="End"
+                            HeightRequest="50"
+                            Command="{Binding CmdNein}"
+                            WidthRequest="100"/>
 
-                </Grid>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
             </Border>
 
 

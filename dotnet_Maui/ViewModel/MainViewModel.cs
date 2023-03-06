@@ -1,12 +1,5 @@
 ﻿using dotnet_Maui.View;
 using dotnet_Maui.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dotnet_Maui.ViewModel
 {
@@ -15,11 +8,13 @@ namespace dotnet_Maui.ViewModel
         private Command _cmdWeather { get; set; }
         private Command _cmdSetting { get; set; }
         private Command _cmdLogin { get; set; }
+        private Command _cmdHeizung { get; set; }
         private string _loginLogout { get; set; }
 
         public MainViewModel()
         {
-            _cmdWeather = new Command(ExecuteWetter, CanExecuteWetter);
+            _cmdWeather = new Command(ExecuteWetter, CanExecute);
+            _cmdHeizung = new Command(ExecuteHeizung, CanExecute);
             _cmdLogin = new Command(ExecuteLogin);
             _cmdSetting = new Command(ExecuteSetting);
             LoginLogoutControll();
@@ -32,6 +27,15 @@ namespace dotnet_Maui.ViewModel
 
             // Navigieren zur WetterView
             await Application.Current.MainPage.Navigation.PushAsync(wetterView);
+        }
+
+        private async void ExecuteHeizung()
+        {
+            // Erstellen einer neuen Instanz der WetterView-Klasse
+            IndoorTempView temp = new IndoorTempView();
+
+            // Navigieren zur WetterView
+            await Application.Current.MainPage.Navigation.PushAsync(temp);
         }
 
         public void LoginLogoutControll()
@@ -60,13 +64,12 @@ namespace dotnet_Maui.ViewModel
             }
             else
             {
-                config.ApiKey = "";
-                ConfigManager.SaveConfig(config);
-                await Application.Current.MainPage.Navigation.PopAsync();
+                LogOutView logout = new LogOutView();
+                await Application.Current.MainPage.Navigation.PushAsync(logout);
             }
         }
 
-        private bool CanExecuteWetter()
+        private bool CanExecute()
         {
             Configuration config = ConfigManager.LoadConfig();
             string apiKey = config.ApiKey;
@@ -97,6 +100,11 @@ namespace dotnet_Maui.ViewModel
         {
             get { return _cmdSetting; }
             set { _cmdSetting = value; }
+        }
+        public Command CmdHeizung
+        {
+            get { return _cmdHeizung; }
+            set { _cmdHeizung = value; }
         }
 
         public Command CmdLogin
