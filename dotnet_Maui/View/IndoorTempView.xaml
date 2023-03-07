@@ -141,26 +141,26 @@
                     <Label
                         Style="{StaticResource lblWetter}"
                         Grid.Row="2"
-                        Grid.Column="0"
+                        Grid.Column="2"
                         Text="Boden Ist" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="2"
                         BindingContext="{Binding IndoorData}"
                         Text="{Binding floorTemp}"
-                        Grid.Column="1"/>
+                        Grid.Column="4"/>
 
                     <Label
                         Style="{StaticResource lblWetter}"
                         Grid.Row="2"
-                        Grid.Column="2"
+                        Grid.Column="0"
                         Text="Wand Ist" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="2"
                         BindingContext="{Binding IndoorData}"
                         Text="{Binding wallTemp}"
-                        Grid.Column="4"/>
+                        Grid.Column="1"/>
 
                     <StackLayout
                         Grid.Row="3"
