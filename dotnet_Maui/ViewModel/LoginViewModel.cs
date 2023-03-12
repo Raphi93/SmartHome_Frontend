@@ -1,8 +1,5 @@
 ﻿using dotnet_Maui.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -72,6 +69,29 @@ namespace dotnet_Maui.ViewModel
             catch (Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+            }
+        }
+
+        public async Task<bool> AuthenticateWithBiometricsAsync()
+        {
+            if (Biometrics.IsSupportedAsync())
+            {
+                var result = await Biometrics.AuthenticateAsync("Authentifizierung mit Biometrie");
+                if (result.Authenticated)
+                {
+                    // Authentifizierung erfolgreich
+                    return true;
+                }
+                else
+                {
+                    // Authentifizierung fehlgeschlagen
+                    return false;
+                }
+            }
+            else
+            {
+                // Biometrie-Authentifizierung wird vom Gerät nicht unterstützt
+                return false;
             }
         }
 
