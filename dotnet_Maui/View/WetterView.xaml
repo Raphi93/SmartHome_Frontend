@@ -88,11 +88,11 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
-                            Width="106" />
+                            Width="110" />
                         <ColumnDefinition
                             Width="1*" />
                         <ColumnDefinition
-                            Width="106" />
+                            Width="110" />
                         <ColumnDefinition
                             Width="1*" />
                     </Grid.ColumnDefinitions>
@@ -125,7 +125,7 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="1"
                         Grid.Column="0"
-                        Text="Temp Max" />
+                        Text="TempMax" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="1"
@@ -137,7 +137,7 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="1"
                         Grid.Column="2"
-                        Text="Wind Max" />
+                        Text="WindMax" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="1"
@@ -149,7 +149,7 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="2"
                         Grid.Column="0"
-                        Text="Temp Min" />
+                        Text="TempMin" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="2"
@@ -161,7 +161,7 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="2"
                         Grid.Column="2"
-                        Text="Wind Min" />
+                        Text="WindMin" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="2"
@@ -197,7 +197,7 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="4"
                         Grid.Column="0"
-                        Text="Humi Max" />
+                        Text="HumiMax" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="4"
@@ -209,7 +209,7 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="4"
                         Grid.Column="2"
-                        Text="Rainning" />
+                        Text="Raining" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         BindingContext="{Binding WeatherData}"
@@ -221,7 +221,7 @@
                         Style="{StaticResource lblWetter}"
                         Grid.Row="5"
                         Grid.Column="0"
-                        Text="Humi Min" />
+                        Text="HumiMin" />
                     <Entry
                         Style="{StaticResource btnWetter}"
                         Grid.Row="5"
@@ -266,14 +266,14 @@
                         Grid.ColumnSpan="2"
                         Stroke="Black"
                         StrokeThickness="1">
-                        <Entry
+                        <DatePicker
                             TextColor="Black"
                             BackgroundColor="White"
                             FontSize="Medium"
-                            BindingContext="{Binding WeatherData}"
-                            Text="{Binding dayTime, Mode=TwoWay}"
-                            Placeholder="Ab 4.3.2023"
-                            HorizontalTextAlignment="End"/>
+                            VerticalOptions="StartAndExpand"
+                            Format="dd/MM/yyyy"
+                            MinimumDate="03.04.2023"
+                            Date="{Binding DayTime, Mode=TwoWay}" />
                     </Border>
 
                     <Button
@@ -288,7 +288,6 @@
 
                 </Grid>
             </Border>
-
 
             <Border
                 BackgroundColor="Black"
