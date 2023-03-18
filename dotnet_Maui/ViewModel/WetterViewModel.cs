@@ -12,6 +12,7 @@ namespace dotnet_Maui.ViewModel
     {
         private readonly Command _cmdBack;
         private readonly Command _cmdGetData;
+        private DateTime _dayTime;
         private ImageSource _wetterDatenImageSource;
 
 
@@ -43,6 +44,12 @@ namespace dotnet_Maui.ViewModel
             set => SetProperty(ref _weatherData, value);
         }
 
+        public DateTime DayTime
+        {
+            get => _dayTime;
+            set => SetProperty(ref _dayTime, value);
+        }
+
         private async void ExecuteBack()
         {
             await Application.Current.MainPage.Navigation.PopAsync();
@@ -53,6 +60,7 @@ namespace dotnet_Maui.ViewModel
         {
             try
             {
+                WeatherData.dayTime = DayTime.ToString("d.M.yyyy");
                 Configuration config = ConfigManager.LoadConfig();
 
                 var handler = new HttpClientHandler();
@@ -60,8 +68,7 @@ namespace dotnet_Maui.ViewModel
                 var client = new HttpClient(handler);
 
 
-                string datum = WeatherData.dayTime.ToString();
-                var request = new HttpRequestMessage(HttpMethod.Get, $"{config.Url}{config.WeatherUrl}{datum}");
+                var request = new HttpRequestMessage(HttpMethod.Get, $"{config.Url}{config.WeatherUrl}{WeatherData.dayTime}");
                 request.Headers.Add("ApiKey", config.ApiKey);
 
                 var response = await client.SendAsync(request);
@@ -73,30 +80,30 @@ namespace dotnet_Maui.ViewModel
                     var data = await response.Content.ReadAsStringAsync();
                     var weatherData = JsonSerializer.Deserialize<WeatherSationModel>(data);
 
-                    double temp = (double)(weatherData.temp);
+                    double temp = (double)weatherData.temp;
                     weatherData.temp = Math.Round(temp, 1);
-                    double temMax = (double)(weatherData.tempMax);
+                    double temMax = (double)weatherData.tempMax;
                     weatherData.tempMax = Math.Round(temMax, 1);
-                    double temMin = (double)(weatherData.tempMin);
+                    double temMin = (double)weatherData.tempMin;
                     weatherData.tempMin = Math.Round(temMin, 1);
 
-                    double wind = (double)(weatherData.wind);
+                    double wind = (double)weatherData.wind;
                     weatherData.wind = Math.Round(wind, 1);
-                    double windMax = (double)(weatherData.windMax);
+                    double windMax = (double)weatherData.windMax;
                     weatherData.windMax = Math.Round(windMax, 1);
-                    double windMin = (double)(weatherData.windMin);
+                    double windMin = (double)weatherData.windMin;
                     weatherData.windMin = Math.Round(windMin, 1);
 
-                    double humi = (double)(weatherData.humidity);
+                    double humi = (double)weatherData.humidity;
                     weatherData.humidity = Math.Round(humi, 1);
-                    double humiMax = (double)(weatherData.humidityMax);
+                    double humiMax = (double)weatherData.humidityMax;
                     weatherData.humidityMax = Math.Round(humiMax, 1);
-                    double humiMin = (double)(weatherData.humidityMin);
+                    double humiMin = (double)weatherData.humidityMin;
                     weatherData.humidityMin = Math.Round(humiMin, 1);
 
-                    double rain = (double)(weatherData.rain);
+                    double rain = (double)weatherData.rain;
                     weatherData.rain = Math.Round(rain, 1);
-                    double sun = (double)(weatherData.sunDuration);
+                    double sun = (double)weatherData.sunDuration;
                     weatherData.sunDuration = Math.Round(sun, 1);
 
                     WeatherData = weatherData;
@@ -122,27 +129,27 @@ namespace dotnet_Maui.ViewModel
             double wind = WeatherData.wind.Value;
             double humi = WeatherData.humidity.Value;
 
-            if ((temp > 30) && (humi > 60) && (wind < 10))
+            if (temp > 30 && humi > 60 && wind < 10)
             {
                 WetterDatenImageSource = ImageSource.FromFile("hot.jpg");
             }
-            else if ((temp > 30) && (humi > 60))
+            else if (temp > 30 && humi > 60)
             {
                 WetterDatenImageSource = ImageSource.FromFile("crazy.png");
             }
-            else if ((temp > 30) && (humi < 60))
+            else if (temp > 30 && humi < 60)
             {
                 WetterDatenImageSource = ImageSource.FromFile("crazy.png");
             }
-            else if ((temp < 30) && (temp > 20))
+            else if (temp < 30 && temp > 20)
             {
                 WetterDatenImageSource = ImageSource.FromFile("good.jpg");
             }
-            else if ((temp < 20) && (temp > 10))
+            else if (temp < 20 && temp > 10)
             {
                 WetterDatenImageSource = ImageSource.FromFile("cool.jgp");
             }
-            else if ((temp < 10) && (temp > 0))
+            else if (temp < 10 && temp > 0)
             {
                 WetterDatenImageSource = ImageSource.FromFile("cold.png");
             }
@@ -160,6 +167,7 @@ namespace dotnet_Maui.ViewModel
         {
             return true;
         }
+
 
         public Command CmdBack => _cmdBack;
 
